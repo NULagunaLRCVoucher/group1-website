@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NULaguna LRC Voucher</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>NULaguna <br><span>LRC Voucher</span></h1>
+
+    <form action="index.html" method="POST">
+        <label for="FullName">Full Name:</label><br>
+        <input type="text" id="FullName" name="FullName" required><br>
+        <label for="studentno">Student no:</label><br>
+        <input type="text" id="studentno" name="studentno" required><br>
+        <label for="Course/Section">Course/Section:</label><br>
+        <input type="text" id="Course/Section" name="Course/Section" required><br>
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="bday" required><br>
+        
+    </form>
+    <div class="display"> 
+        <input  id="password"  > 
+        <img src="pngegg.png" onclick="copyPassword()">
+        
+    </div>
+    <button onclick ="createPassword()"><img src="images/generate.png">GET VOUCHER</button>
+      
+</div>
+
+<script >
+
+ const passwordBox = document.getElementById("password");
+ 
+ const lenght =7;
+ const number1 = "0123456789";
+ const number2 = "0123456789";
+ 
+
+ const allChars = number1 + number2;
+
+function createPassword(){
+    let password = "";
+    
+    password += number1 [Math.floor(Math.random() * number1.length)];
+    password += number2 [Math.floor(Math.random() * number2.length)];
+    
+
+    while(lenght > password.length) { 
+        password += allChars[Math.floor(Math.random() * allChars.length)];
+    }
+    passwordBox.value = password;
+}
+
+function copyPassword(){
+    passwordBox.select();
+    document.execCommand("copy");
+   
+}
+
+</script>
+
+</body>
+</html>
